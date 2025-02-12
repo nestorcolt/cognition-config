@@ -14,7 +14,7 @@ tool_services:
 # Global Tool Settings
 settings:
   cache:
-    enabled: true
+    enabled: false
     ttl: 3600 # Cache TTL in seconds
     max_size: 1000 # Maximum number of cached results
 
