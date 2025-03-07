@@ -4,7 +4,7 @@ environment: "development"
 # Tool Service Configuration
 tool_services:
   - name: "primary_service"
-    enabled: true
+    enabled: false
     base_url: "http://localhost:8000"
     endpoints:
       - path: "/tools"
