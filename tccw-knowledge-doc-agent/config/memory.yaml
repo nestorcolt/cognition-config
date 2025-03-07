@@ -1,24 +1,24 @@
 embedder:
-  provider: "ollama"
+  provider: "openai"
   config:
-    model: "nomic-embed-text"
+    model: "text-embedding-3-small"
     dimension: 384
 
 long_term_memory:
   enabled: false
-  external: true
+  external: false
   connection_string: "postgresql://postgres:your_password@localhost:5432/cognition_db"
 
 short_term_memory:
   enabled: false
-  external: true
+  external: false
   host: "localhost"
   port: 8000
   collection_name: "short_term"
 
 entity_memory:
   enabled: false
-  external: true
+  external: false
   host: "localhost"
   port: 8000
   collection_name: "entities"
