@@ -1,0 +1,21 @@
+# Flow configurations
+enabled_flows:
+  - cloud_resource_flow
+  - code_review_flow
+
+# Global flow settings
+settings:
+  persistence:
+    enabled: true
+    backend: "sqlite"
+  monitoring:
+    enabled: true
+    metrics:
+      - execution_time
+      - success_rate
+      - error_count
+  logging:
+    level: "INFO"
+    handlers:
+      - console
+      - file
