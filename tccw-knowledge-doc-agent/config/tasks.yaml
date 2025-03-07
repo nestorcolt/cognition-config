@@ -1,9 +1,15 @@
 analysis_task:
-  description: "Analyze the meeting transcript: {message}. Format it into structured meeting notes with the following sections: Date, Participants, Goals, Discussion topics (with timestamps), Action items, and Decisions."
+  description: >
+    "Analyze the meeting transcript: {transcript}. 
+    Format it into structured meeting notes with the following sections: Date, Participants,
+    Goals, Discussion topics (with timestamps), Action items, and Decisions."
   expected_output: "Structured meeting notes following the required template format"
   agent: analyzer
 
 doc_generation_task:
-  description: "Take the structured meeting notes and publish them to Confluence using the available tools. Ensure the formatting is clean and professional."
+  description: >
+    "Take the structured meeting notes: {notes}. 
+    Publish them to Confluence using the available tools. 
+    Ensure the formatting is clean and professional."
   expected_output: "Confirmation of successful publication to Confluence with the page URL"
   agent: doc_generation_agent
