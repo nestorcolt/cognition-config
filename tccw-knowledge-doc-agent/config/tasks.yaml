@@ -1,20 +1,39 @@
 analysis_task:
   description: >
-    "Analyze the meeting notes: {notes_subject} and raw transcription: {transcription} from the Knowledge Source. 
-    Format it into structured meeting notes with the following sections: Date, Participants,
-    Goals, Discussion topics (with timestamps), Action items, and Decisions."
-  expected_output: "Structured meeting notes following the required template format"
+    "Analyze the meeting notes: {notes_subject} and raw transcription: {transcription} from the Knowledge Source.
+    Extract and structure all relevant information into comprehensive meeting notes with the following sections:
+    - Date and time of the meeting
+    - Complete list of participants with roles if available
+    - Meeting goals and objectives
+    - Detailed discussion topics with accurate timestamps
+    - All action items with assignees and deadlines
+    - Key decisions made with context and rationale
+    - Any follow-up items or next steps mentioned
+
+    Be thorough and ensure no important details are missed. The structured notes will be passed to the documentation agent."
+  expected_output: "Comprehensive structured meeting notes with all required sections extracted from the transcription"
   agent: analyzer
 
 doc_generation_task:
   description: >
-    "Take the structured meeting notes: {notes_subject} and reference transcription: {transcription} from the Knowledge Source. 
-    Save them as a markdown file in /home/iamroot/. 
-    Ensure the formatting is clean and professional, with an appropriate filename 
-    based on the meeting date and topic.
-    Include mandatory mermaid charts to visualize the meeting flow, decision processes, 
-    and action item dependencies. These charts should enhance understanding without 
-    being overly complex. Use appropriate chart types (flowcharts, sequence diagrams, 
-    or gantt charts) based on the meeting content."
-  expected_output: "Confirmation of successful file creation with the file path"
+    "Take the structured meeting notes provided by the analyzer agent and create a professional markdown document.
+    Save the document as a markdown file in /home/iamroot/ with a filename based on the meeting date and topic.
+
+    Format the document with the following sections:
+    - Title (based on meeting subject)
+    - Date and Time
+    - Participants
+    - Goals/Objectives
+    - Discussion Topics (with timestamps)
+    - Action Items (clearly highlighting assignees and deadlines)
+    - Decisions
+
+    Include mandatory mermaid charts to visualize:
+    1. Meeting flow and topic progression
+    2. Decision-making processes
+    3. Action item dependencies and responsibilities
+
+    Select appropriate chart types (flowcharts, sequence diagrams, or gantt charts) based on the meeting content.
+    Ensure the document is clean, professional, and enhances understanding of the meeting outcomes."
+  expected_output: "Confirmation of successful markdown file creation with the complete file path"
   agent: doc_generation_agent
