@@ -9,7 +9,7 @@ analysis_task:
 doc_generation_task:
   description: >
     "Take the structured meeting notes: {notes_subject} and reference transcription: {transcription} from the Knowledge Source. 
-    Save them as a markdown file in the home directory. 
+    Save them as a markdown file in the OS ~HOME directory. 
     Ensure the formatting is clean and professional, with an appropriate filename 
     based on the meeting date and topic.
     Include mandatory mermaid charts to visualize the meeting flow, decision processes, 
