@@ -1,6 +1,6 @@
 analysis_task:
   description: >
-    "Analyze the meeting transcript: {transcript}. 
+    "Analyze the meeting notes: {notes_subject} from the Knowledge Source. 
     Format it into structured meeting notes with the following sections: Date, Participants,
     Goals, Discussion topics (with timestamps), Action items, and Decisions."
   expected_output: "Structured meeting notes following the required template format"
@@ -8,7 +8,7 @@ analysis_task:
 
 doc_generation_task:
   description: >
-    "Take the structured meeting notes: {transcript}. 
+    "Take the structured meeting notes: {notes_subject} from the Knowledge Source. 
     Publish them to Confluence using the available tools. 
     Ensure the formatting is clean and professional."
   expected_output: "Confirmation of successful publication to Confluence with the page URL"
