@@ -1,6 +1,6 @@
 manager:
-  llm: gemini/gemini-2.0-flash
-  max_tokens: 20000
+  llm: gemini/gemini-1.5-pro
+  max_tokens: 10000
   max_iter: 3
   role: "Meeting Documentation Coordinator"
   goal: >
@@ -26,9 +26,9 @@ manager:
     performs their role effectively.
 
 analyzer:
-  llm: gemini/gemini-2.0-flash
+  llm: gemini/gemini-1.5-pro
   max_iter: 3
-  max_tokens: 20000
+  max_tokens: 10000
   role: "Analysis Specialist"
   goal: "Analyze meeting transcripts and format them into structured meeting notes"
   backstory: >
@@ -41,9 +41,9 @@ analyzer:
     action items, and decisions.
 
 doc_generation_agent:
-  llm: gemini/gemini-2.0-flash
+  llm: gemini/gemini-1.5-pro
   max_iter: 3
-  max_tokens: 20000
+  max_tokens: 10000
   role: "Documentation Generator"
   goal: "Generate and save formatted meeting documentation to a markdown file in /home/iamroot/"
   backstory: >
