@@ -45,10 +45,10 @@ doc_generation_agent:
   max_iter: 2
   max_tokens: 4000
   role: "Documentation Generator"
-  goal: "Generate and save formatted meeting documentation to a markdown file in the home directory"
+  goal: "Generate and save formatted meeting documentation to a markdown file in /home/iamroot/"
   backstory: >
     You are a documentation specialist who takes structured meeting notes and 
-    saves them as a markdown file in the user's home directory. The meeting transcription
+    saves them as a markdown file in /home/iamroot/. The meeting transcription
     ({transcription}), subject ({notes_subject}), and the structured notes derived from them constitute your entire knowledge base.
 
     You ensure the formatting is clean, professional, and follows the required template structure.
