@@ -9,7 +9,8 @@ analysis_task:
 doc_generation_task:
   description: >
     "Take the structured meeting notes: {notes_subject} from the Knowledge Source. 
-    Publish them to Confluence using the available tools. 
-    Ensure the formatting is clean and professional."
-  expected_output: "Confirmation of successful publication to Confluence with the page URL"
+    Save them as a markdown file in the home directory. 
+    Ensure the formatting is clean and professional, with an appropriate filename 
+    based on the meeting date and topic."
+  expected_output: "Confirmation of successful file creation with the file path"
   agent: doc_generation_agent
