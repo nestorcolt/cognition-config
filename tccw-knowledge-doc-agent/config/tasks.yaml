@@ -8,7 +8,7 @@ analysis_task:
 
 doc_generation_task:
   description: >
-    "Take the structured meeting notes: {notes}. 
+    "Take the structured meeting notes: {transcript}. 
     Publish them to Confluence using the available tools. 
     Ensure the formatting is clean and professional."
   expected_output: "Confirmation of successful publication to Confluence with the page URL"
