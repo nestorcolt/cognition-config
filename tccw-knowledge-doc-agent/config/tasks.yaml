@@ -1,6 +1,6 @@
 analysis_task:
   description: >
-    "Analyze the meeting notes: {notes_subject} from the Knowledge Source. 
+    "Analyze the meeting notes: {notes_subject} and raw transcription: {transcription} from the Knowledge Source. 
     Format it into structured meeting notes with the following sections: Date, Participants,
     Goals, Discussion topics (with timestamps), Action items, and Decisions."
   expected_output: "Structured meeting notes following the required template format"
@@ -8,7 +8,7 @@ analysis_task:
 
 doc_generation_task:
   description: >
-    "Take the structured meeting notes: {notes_subject} from the Knowledge Source. 
+    "Take the structured meeting notes: {notes_subject} and reference transcription: {transcription} from the Knowledge Source. 
     Save them as a markdown file in the home directory. 
     Ensure the formatting is clean and professional, with an appropriate filename 
     based on the meeting date and topic.
