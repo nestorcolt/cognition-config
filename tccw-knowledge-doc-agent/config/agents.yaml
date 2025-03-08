@@ -39,7 +39,9 @@ doc_generation_agent:
   max_iter: 1
   max_tokens: 4000
   role: "Documentation Generator"
-  goal: "Generate and save formatted meeting documentation to a markdown file in the home directory"
+  goal: >
+    "Generate and save formatted meeting documentation to a markdown file in the home directory
+    using the available agent tools"
   backstory: >
     You are a documentation specialist who takes structured meeting notes and 
     saves them as a markdown file in the user's home directory. You ensure the formatting 
