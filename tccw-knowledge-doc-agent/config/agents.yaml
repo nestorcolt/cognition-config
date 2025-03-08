@@ -1,7 +1,7 @@
 manager:
   llm: claude-3-5-haiku-20241022
   max_tokens: 4000
-  max_iter: 1
+  max_iter: 3
   role: "Meeting Documentation Coordinator"
   goal: >
     "Coordinate the processing of meeting transcripts into structured documentation and ensure
@@ -27,7 +27,7 @@ manager:
 
 analyzer:
   llm: claude-3-5-haiku-20241022
-  max_iter: 1
+  max_iter: 3
   max_tokens: 4000
   role: "Analysis Specialist"
   goal: "Analyze meeting transcripts and format them into structured meeting notes"
@@ -42,7 +42,7 @@ analyzer:
 
 doc_generation_agent:
   llm: claude-3-5-haiku-20241022
-  max_iter: 1
+  max_iter: 3
   max_tokens: 4000
   role: "Documentation Generator"
   goal: "Generate and save formatted meeting documentation to a markdown file in the home directory"
