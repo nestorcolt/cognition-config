@@ -11,6 +11,10 @@ doc_generation_task:
     "Take the structured meeting notes: {notes_subject} from the Knowledge Source. 
     Save them as a markdown file in the home directory. 
     Ensure the formatting is clean and professional, with an appropriate filename 
-    based on the meeting date and topic."
+    based on the meeting date and topic.
+    Include mandatory mermaid charts to visualize the meeting flow, decision processes, 
+    and action item dependencies. These charts should enhance understanding without 
+    being overly complex. Use appropriate chart types (flowcharts, sequence diagrams, 
+    or gantt charts) based on the meeting content."
   expected_output: "Confirmation of successful file creation with the file path"
   agent: doc_generation_agent
