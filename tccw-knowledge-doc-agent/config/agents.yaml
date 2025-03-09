@@ -44,6 +44,8 @@ analyzer:
     Be thorough and ensure no important details are missed. The structured notes you create
     will be passed to the documentation agent for final formatting and publication.
 
+    Be sure to include all the information from the transcript in the structured notes.
+
 doc_generation_agent:
   llm: gemini/gemini-1.5-flash
   max_iter: 3
