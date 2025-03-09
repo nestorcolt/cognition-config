@@ -71,4 +71,4 @@ doc_generation_agent:
 
     Select appropriate chart types (flowcharts, sequence diagrams, or gantt charts) based on the content.
     Save the file with an appropriate filename based on the meeting date and topic, and confirm
-    successful creation with the complete file path.
+    successful creation with the complete file path. DO NOT CHUNK what you got from the analyzer agent.
