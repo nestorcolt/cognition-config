@@ -1,5 +1,5 @@
 manager:
-  llm: gemini/gemini-1.5-pro
+  llm: gemini/gemini-1.5-flash
   max_tokens: 4000
   max_iter: 1
   role: "Meeting Documentation Coordinator"
@@ -23,7 +23,7 @@ manager:
     performs their role effectively.
 
 analyzer:
-  llm: gemini/gemini-1.5-pro
+  llm: gemini/gemini-1.5-flash
   max_iter: 2
   max_tokens: 10000
   role: "Analysis Specialist"
@@ -45,7 +45,7 @@ analyzer:
     will be passed to the documentation agent for final formatting and publication.
 
 doc_generation_agent:
-  llm: gemini/gemini-1.5-pro
+  llm: gemini/gemini-1.5-flash
   max_iter: 3
   max_tokens: 10000
   role: "Documentation Generator"
