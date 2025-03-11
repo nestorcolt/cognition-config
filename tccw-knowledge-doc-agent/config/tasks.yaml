@@ -37,3 +37,25 @@ doc_generation_task:
     Ensure the document is clean, professional, and enhances understanding of the meeting outcomes."
   expected_output: "Confirmation of successful markdown file creation with the complete file path"
   agent: doc_generation_agent
+
+confluence_task:
+  description: >
+    "Take the structured meeting notes provided by the analyzer agent and publish them to the appropriate Confluence page.
+
+    First, retrieve all child pages from the parent page (ID: 294913) in the specified space (ID: ~71200373278b1498e8c66f861f4c86ff983d1498).
+    Based on the meeting subject and content, determine the most relevant child page to create the new documentation under.
+
+    Create a new Confluence page with the following content:
+    - Title (based on meeting subject)
+    - Date and Time
+    - Participants
+    - Goals/Objectives
+    - Discussion Topics (with timestamps)
+    - Action Items (clearly highlighting assignees and deadlines)
+    - Decisions
+    - Mermaid charts for visualizing meeting flow, decision processes, and action items
+
+    Ensure all formatting is preserved, including the mermaid charts. The page should be professional and enhance understanding
+    of the meeting outcomes. After creation, provide confirmation with the new page URL."
+  expected_output: "Confirmation of successful Confluence page creation with the page URL"
+  agent: confluence_agent
