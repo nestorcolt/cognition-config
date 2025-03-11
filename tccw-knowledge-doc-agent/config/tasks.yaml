@@ -1,3 +1,6 @@
+# Analysis Task:
+# This task extracts and structures all the necessary meeting details from the raw transcription.
+# IMPORTANT: The meeting subject ('{notes_subject}') must be included in the output for consistent naming.
 analysis_task:
   description: >
     "Analyze the meeting notes: {notes_subject} and raw transcription: {transcription} from the Knowledge Source.
@@ -10,17 +13,22 @@ analysis_task:
     - Key decisions made with context and rationale
     - Any follow-up items or next steps mentioned
 
-    Be thorough and ensure no important details are missed. The structured notes will be passed to the documentation agent."
-  expected_output: "Comprehensive structured meeting notes with all required sections extracted from the transcription"
+    Be thorough and ensure no important details are missed. The structured notes will be passed to the documentation agent.
+    Include the meeting subject '{notes_subject}' in your output as this will be used for naming files and Confluence pages."
+  expected_output: "Comprehensive structured meeting notes with all required sections extracted from the transcription, including the meeting subject for naming purposes"
   agent: analyzer
 
+# Documentation Generation Task:
+# This task uses the structured notes from the analyzer to create a Markdown file.
+# The '{notes_subject}' is used to generate the document title and filename.
 doc_generation_task:
   description: >
     "Take the structured meeting notes provided by the analyzer agent and create a professional markdown document.
-    Save the document as a markdown file in /home/iamroot/ with a filename based on the meeting date and topic.
+    Use the meeting subject '{notes_subject}' as the basis for the document title and filename.
+    Save the document as a markdown file in /home/iamroot/ with a filename based on the meeting date and '{notes_subject}'.
 
     Format the document with the following sections:
-    - Title (based on meeting subject)
+    - Title (based on meeting subject '{notes_subject}')
     - Date and Time
     - Participants
     - Goals/Objectives
@@ -33,27 +41,31 @@ doc_generation_task:
     2. Decision-making processes
     3. Action item dependencies and responsibilities
 
-    Select appropriate chart types (flowcharts, sequence diagrams, or gantt charts) based on the meeting content.
+    Select appropriate mermaid chart types (e.g., flowcharts, sequence diagrams, or gantt charts) based on the meeting content.
     Ensure the document is clean, professional, and enhances understanding of the meeting outcomes."
   expected_output: "Confirmation of successful markdown file creation with the complete file path"
   agent: doc_generation_agent
 
+# Confluence Publishing Task:
+# This task publishes the structured notes to Confluence.
+# It retrieves the child pages from the given parent and then matches based on the '{notes_subject}' before creating a new page.
 confluence_task:
   description: >
     "Take the structured meeting notes provided by the analyzer agent and publish them to the appropriate Confluence page.
+    Use the meeting subject '{notes_subject}' to determine the appropriate location and page title.
 
-    First, retrieve all child pages from the parent page (ID: 294913) in the specified space (ID: ~71200373278b1498e8c66f861f4c86ff983d1498).
-    Based on the meeting subject and content, determine the most relevant child page to create the new documentation under.
-
-    Create a new Confluence page with the following content:
-    - Title (based on meeting subject)
-    - Date and Time
-    - Participants
-    - Goals/Objectives
-    - Discussion Topics (with timestamps)
-    - Action Items (clearly highlighting assignees and deadlines)
-    - Decisions
-    - Mermaid charts for visualizing meeting flow, decision processes, and action items
+    Process:
+    1. Retrieve all child pages from the parent page (ID: 294913) in the specified space (ID: ~71200373278b1498e8c66f861f4c86ff983d1498).
+    2. Based on the meeting subject '{notes_subject}' and content, determine the most relevant child page to create the new documentation under.
+    3. Create a new Confluence page with the following content:
+       - Title (based on meeting subject '{notes_subject}')
+       - Date and Time
+       - Participants
+       - Goals/Objectives
+       - Discussion Topics (with timestamps)
+       - Action Items (clearly highlighting assignees and deadlines)
+       - Decisions
+       - Mermaid charts for visualizing meeting flow, decision processes, and action items
 
     Ensure all formatting is preserved, including the mermaid charts. The page should be professional and enhance understanding
     of the meeting outcomes. After creation, provide confirmation with the new page URL."

@@ -1,4 +1,44 @@
-description: "Cognition crew configuration"
-environment: "development"
-name: "cognition"
-version: "1.0"
+# Meeting Documentation Workflow Crew Definition
+description: "Meeting Documentation Workflow Crew"
+environment: "prod"
+name: "meeting_docs_crew"
+version: "1.1.0"
+
+# Agents Definition:
+# Each agent is assigned specific tasks. The meeting subject ('{notes_subject}') is a key piece of information
+# that must be carried through the entire workflow for file/page naming or matching.
+agents:
+  # Analyzer Agent: Analyzes transcripts to extract structured meeting information.
+  - identifier: "analyzer"
+    role: "Transcript Analysis Specialist"
+    tasks: ["analysis_task"]
+
+  # Markdown Documentation Agent: Generates a professional markdown document from the structured notes.
+  - identifier: "doc_generation_agent"
+    role: "Markdown Documentation Expert"
+    tasks: ["doc_generation_task"]
+
+  # Confluence Publishing Agent: Publishes the structured meeting notes to an appropriately named Confluence page.
+  - identifier: "confluence_agent"
+    role: "Confluence Publishing Agent"
+    tasks: ["confluence_task"]
+
+# Tasks Definition:
+# The tasks are executed in sequence. The meeting subject is passed across all tasks to ensure consistent naming.
+tasks:
+  # 1. Analysis Task: Extracts key meeting details and includes the meeting subject for naming.
+  - name: "analysis_task"
+    description: "Initial transcript analysis and structuring; output includes the meeting subject for naming."
+    sequence: 1
+
+  # 2. Documentation Generation Task: Creates the markdown document using the meeting subject from the analysis output.
+  - name: "doc_generation_task"
+    description: "Markdown document creation using the meeting notes and subject for naming."
+    sequence: 2
+    depends_on: ["analysis_task"]
+
+  # 3. Confluence Publishing Task: Publishes the notes to Confluence, matching the meeting subject to page names.
+  - name: "confluence_task"
+    description: "Confluence page publication; retrieves child pages and creates a new page under the matched child based on the meeting subject."
+    sequence: 3
+    depends_on: ["analysis_task"]
